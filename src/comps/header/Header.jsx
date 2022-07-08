@@ -1,9 +1,17 @@
 import React from 'react'
+import './Header.css'
+import Account from './Account'
+import Logo from './Logo'
+import Search from './Search'
 
 
 const Header = () => {
   return (
-    <div>Header</div>
+    <header>
+      <Logo/>
+      <Search/>
+      <Account/>
+    </header>
   )
 }
 

@@ -1,8 +1,11 @@
 import React from 'react'
+import './Main.css'
 
 const Main = () => {
   return (
-    <div>Main</div>
+    <main>Main
+      <div>Testing small change on pc</div>
+    </main>
   )
 }
 
