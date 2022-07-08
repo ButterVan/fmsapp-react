@@ -1,7 +1,10 @@
 import './App.css';
-import Header from './comps/Header';
-import Body from './comps/Body';
-import Footer from './comps/Footer';
+import './comps/gridStyle.css'
+import Footer from './comps/footer/Footer';
+import Header from './comps/header/Header';
+import Main from './comps/main/Main';
+
+
 
 function App() {
   //Hard coding cows for right now
@@ -9,9 +12,9 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <Body />
-      <Footer />
+      <Header></Header>
+      <Main></Main>
+      <Footer></Footer>
     </div>
   );
 }
