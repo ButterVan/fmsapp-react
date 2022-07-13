@@ -15,7 +15,7 @@ const List = () => {
         </thead>
         <tbody>
           <tr>
-          Cow.
+
           </tr>
         </tbody>
       </table>
