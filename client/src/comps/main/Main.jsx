@@ -1,7 +1,7 @@
 import React from 'react'
-import List from './List'
-import Detail from './Detail'
-import Summary from './Summary'
+import List from './list/List'
+import Detail from './selected/Detail'
+import Summary from './summary/Summary'
 import './Main.css'
 
 const Main = () => {

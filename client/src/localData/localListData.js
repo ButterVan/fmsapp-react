@@ -1,26 +1,32 @@
 const herdList = [
   {
-    "steelId": "123",
-    "tagId": "Y12",
-    "breed": "Sential",
-    "sex": "Cow"
+    id: 1,
+    sId: "123",
+    eId: "Y12",
+    breed: "Sential",
+    sex: "Cow"
   },
   {
-    "steelId": "124",
-    "tagId": "Y55",
-    "breed": "Sential",
-    "sex": "Cow"
+    id: 2,
+    sId: "124",
+    eId: "Y55",
+    breed: "Sential",
+    sex: "Cow"
   },
   {
-    "steelId": "224",
-    "tagId": "R43",
-    "breed": "Sential",
-    "sex": "Cow"
+    id: 3,
+    sId: "224",
+    eId: "R43",
+    breed: "Sential",
+    sex: "Cow"
   },
   {
-    "steelId": "236",
-    "tagId": "W33",
-    "breed": "Sential",
-    "sex": "Cow"
+    id: 4,
+    sId: "236",
+    eId: "W33",
+    breed: "Sential",
+    sex: "Cow"
   }, 
 ];
+
+export default herdList;
