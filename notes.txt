@@ -1,0 +1,22 @@
+Things that I have done so far,
+-) Ripped out old project
+-) npm init
+  -) starting location set to server.js (if you have not created the file already)
+  -) (dir) backend -> (file) server.js
+-) Started working on backend
+  -) server.js
+  -) npm i express dotenv mongoose colors
+    -) this is backend stuff and dotenv is so we can use enviourment vars in our project if I remember correctly
+  -) npm i -D nodemon 
+    -) This is so we can reload the server (live)
+    -) if any changes come to .env file -> need to restart server
+  -) when into package.json
+    -)in scripts sections we added the following 2 lines to run our server
+      -) "start": "node backend/server.js",
+      -) "server": "nodemon backend/server.js"
+-) now "npm run server" command works and it points to server.js
+  -) create .env file
+    -) use this to create enviourment vars like Port and node enviourment and assign it to dev
+-) .gitignore
+  -) created it
+  -) added node_modules and .env on list
