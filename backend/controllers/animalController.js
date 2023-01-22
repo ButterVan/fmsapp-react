@@ -1,5 +1,6 @@
 const asyncHandler = require('express-async-handler')
 const Animal = require('../models/animalModel')
+const User = require('../models/userModel')
 
 // @desc Get animal
 // @route GET /api/animal
@@ -7,7 +8,7 @@ const Animal = require('../models/animalModel')
 const getAnimal = asyncHandler(async (req, res) => {
   // console.log(req.body);
   // res.status(200).json({ message: "get animal" });
-  const animal = await Animal.find()
+  const animal = await Animal.find({ user: req.user.id })
 
   res.status(200).json(animal);
 
@@ -25,7 +26,8 @@ const createAnimal = asyncHandler( async (req, res) => {
   // res.status(200).json({ message: "Create animal" });
   const animal = await Animal.create(
     {
-      text: req.body.text
+      text: req.body.text,
+      user: req.user.id,
     }
   )
   res.status(200).json(animal);
@@ -43,6 +45,20 @@ const updateAnimal = asyncHandler(async (req, res) => {
     throw new Error('Animal not found')
   }
 
+  const user = await User.findById(req.user.id)
+
+  //check for user
+  if (!user) { 
+    res.status(401)
+    throw new Error('User not found')
+  }
+
+  //Make sure the logged in user matches the goal user
+  if (goal.user.toString() !== user.id) { 
+    res.status(401)
+    throw new Error('User not authorized')
+  }
+
   const updatedAnimal = await Animal.findByIdAndUpdate(req.params.id, req.body, {new: true,})
 
   res.status(200).json(updatedAnimal);
@@ -57,6 +73,20 @@ const deleteAnimal = asyncHandler(async (req, res) => {
   if (!animal) { 
     res.status(400)
     throw new Error('Animal not found')
+  }
+
+  const user = await User.findById(req.user.id)
+
+  //check for user
+  if (!user) { 
+    res.status(401)
+    throw new Error('User not found')
+  }
+
+  //Make sure the logged in user matches the goal user
+  if (goal.user.toString() !== user.id) { 
+    res.status(401)
+    throw new Error('User not authorized')
   }
 
   await animal.remove()
