@@ -1,11 +1,16 @@
 const asyncHandler = require('express-async-handler')
+const Animal = require('../models/animalModel')
 
 // @desc Get animal
 // @route GET /api/animal
 // @access Private
 const getAnimal = asyncHandler(async (req, res) => {
-  console.log(req.body);
-  res.status(200).json({ message: "get animal" });
+  // console.log(req.body);
+  // res.status(200).json({ message: "get animal" });
+  const animal = await Animal.find()
+
+  res.status(200).json(animal);
+
 })
 
 // @desc create animal
@@ -16,22 +21,48 @@ const createAnimal = asyncHandler( async (req, res) => {
     res.status(400);
     throw new Error("Please send with text");
   }
-  console.log(req.body.text);
-  res.status(200).json({ message: "Create animal" });
+  // console.log(req.body.text);
+  // res.status(200).json({ message: "Create animal" });
+  const animal = await Animal.create(
+    {
+      text: req.body.text
+    }
+  )
+  res.status(200).json(animal);
 })
 
 // @desc update animal
 // @route PUT /api/animal/:id
 // @access Private
-const updateAnimal = asyncHandler( async (req, res) => {
-  res.status(200).json({ message: `update animal ${req.params.id}` });
+const updateAnimal = asyncHandler(async (req, res) => {
+  const animal = await Animal.findById(req.params.id)
+  // res.status(200).json({ message: `update animal ${req.params.id}` });
+
+  if (!animal) { 
+    res.status(400)
+    throw new Error('Animal not found')
+  }
+
+  const updatedAnimal = await Animal.findByIdAndUpdate(req.params.id, req.body, {new: true,})
+
+  res.status(200).json(updatedAnimal);
 })
 
 // @desc delete animal
 // @route DELETE /api/animal/:id
 // @access Private
 const deleteAnimal = asyncHandler(async (req, res) => {
-  res.status(200).json({ message: `delete animal ${req.params.id}` });
+  // res.status(200).json({ message: `delete animal ${req.params.id}` });
+  const animal = await Animal.findById(req.params.id)
+  if (!animal) { 
+    res.status(400)
+    throw new Error('Animal not found')
+  }
+
+  await animal.remove()
+
+  res.status(200).json({id: req.params.id});
+
 })
 
 module.exports = {
