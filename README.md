@@ -8,11 +8,11 @@ FMSAPP - Farm Management System - will be a working web app for small farmers to
 2. npm i -D nodemon
 3. npm install bcryptjs (In second video/part 2 - jwt authentication)
 4. npm install jsonwebtoken (In second video/part 2 - jwt authentication)
-5. npx create-react-app@latest frontend --template redux (In third video/part 3 - frontent authentication)
-6. npm i react-router-dom (In third video/part 3 - frontent authentication)
-7. npm i react-icons (In third video/part 3 - frontent authentication)
-8. npm i -D concurrently (In third video/part 3 - frontent authentication)
-9. npm i axios react-toastify (In third video/part 3 - frontent authentication)
+5. (cd into frontend folder first) npx create-react-app@latest frontend --template redux (In third video/part 3 - frontend authentication)
+6. (cd into frontend folder first) npm i react-router-dom (In third video/part 3 - frontent authentication)
+7. (cd into frontend folder first) npm i react-icons (In third video/part 3 - frontent authentication)
+8. (cd into frontend folder first) npm i -D concurrently (In third video/part 3 - frontent authentication)
+9. (cd into frontend folder first) npm i axios react-toastify (In third video/part 3 - frontent authentication)
 
 ### Notes to self
 
